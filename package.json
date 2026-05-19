@@ -1,12 +1,19 @@
 {
-  "name": "legacy-nexus",
+  "name": "legacy-nexus-monorepo",
   "version": "1.0.0",
   "private": true,
-  "description": "Retail management system",
+  "description": "Retail management system - Monorepo with NestJS backend and static frontend",
   "scripts": {
-    "serve": "http-server static -p 8080"
+    "backend:build": "cd apps/backend && npm run build",
+    "backend:start": "cd apps/backend && npm run start",
+    "backend:start:dev": "cd apps/backend && npm run start:dev",
+    "backend:start:prod": "cd apps/backend && npm run start:prod",
+    "backend:test": "cd apps/backend && npm run test",
+    "frontend:serve": "cd apps/frontend && npm run serve",
+    "install:all": "npm install && cd apps/backend && npm install && cd ../frontend && npm install"
   },
-  "dependencies": {
-    "http-server": "0.12.3"
-  }
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

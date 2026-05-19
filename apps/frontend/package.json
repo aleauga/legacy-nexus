@@ -1,0 +1,10 @@
+{
+  "name": "legacy-nexus-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Retail management system - Frontend",
+  "scripts": {
+    "serve": "npx serve static -p 8080",
+    "build": "echo 'No build step required for static HTML/CSS/JS'"
+  }
+}
