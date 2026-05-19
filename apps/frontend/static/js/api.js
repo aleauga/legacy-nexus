@@ -1,5 +1,5 @@
 var API = {
-  baseURL: 'http://localhost:3000',
+  baseURL: '',
   get: function(url, cb) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', this.baseURL + url, true);
