@@ -1,0 +1,12 @@
+{
+  "name": "legacy-nexus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Retail management system",
+  "scripts": {
+    "serve": "http-server static -p 8080"
+  },
+  "dependencies": {
+    "http-server": "0.12.3"
+  }
+}
