@@ -3,5 +3,7 @@ import { LoginDto } from '../../application/dto/login.dto';
 export declare class AuthController {
     private readonly loginUseCase;
     constructor(loginUseCase: LoginUseCase);
-    login(dto: LoginDto): Promise<import("../../application/dto/user.response.dto").UserResponseDto>;
+    login(dto: LoginDto): Promise<import("../../application/dto/user.response.dto").UserResponseDto | {
+        error: string;
+    }>;
 }

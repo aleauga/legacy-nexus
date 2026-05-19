@@ -16,29 +16,16 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const path_1 = require("path");
 let AppController = class AppController {
-    serveLoginFile(res) {
+    serveLogin(res) {
         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
         res.setHeader('Pragma', 'no-cache');
         res.setHeader('Expires', '0');
-        return res.sendFile((0, path_1.join)(process.cwd(), '../frontend/static', 'login.html'));
-    }
-    serveRoot(res) {
-        return this.serveLoginFile(res);
-    }
-    serveLogin(res) {
-        return this.serveLoginFile(res);
+        return res.sendFile((0, path_1.join)(process.cwd(), 'static', 'login.html'));
     }
 };
 exports.AppController = AppController;
 __decorate([
     (0, common_1.Get)(),
-    __param(0, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "serveRoot", null);
-__decorate([
-    (0, common_1.Get)('login'),
     __param(0, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),

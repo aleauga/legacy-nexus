@@ -32,7 +32,7 @@ let ExportsController = class ExportsController {
     async exportPivot(year, a, b, res) {
         const pivot = await this.exportPivotUseCase.execute(parseInt(year), a, b);
         res.setHeader('Content-Type', 'application/json');
-        res.json(pivot.data);
+        res.json(pivot);
     }
     async getTotals(year, customerType, res) {
         const sales = await this.saleRepository.findAll();

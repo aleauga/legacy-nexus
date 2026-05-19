@@ -2,13 +2,16 @@ import { CreateRefundUseCase } from '../../application/use-cases/refunds/create-
 import { ApproveRefundUseCase } from '../../application/use-cases/refunds/approve-refund.use-case';
 import { GetRefundsByUserUseCase } from '../../application/use-cases/refunds/get-refunds-by-user.use-case';
 import { SearchRefundsUseCase } from '../../application/use-cases/refunds/search-refunds.use-case';
+import { GetAllRefundsUseCase } from '../../application/use-cases/refunds/get-all-refunds.use-case';
 import { CreateRefundDto } from '../../application/dto/create-refund.dto';
 export declare class RefundsController {
     private readonly createRefundUseCase;
     private readonly approveRefundUseCase;
     private readonly getRefundsByUserUseCase;
     private readonly searchRefundsUseCase;
-    constructor(createRefundUseCase: CreateRefundUseCase, approveRefundUseCase: ApproveRefundUseCase, getRefundsByUserUseCase: GetRefundsByUserUseCase, searchRefundsUseCase: SearchRefundsUseCase);
+    private readonly getAllRefundsUseCase;
+    constructor(createRefundUseCase: CreateRefundUseCase, approveRefundUseCase: ApproveRefundUseCase, getRefundsByUserUseCase: GetRefundsByUserUseCase, searchRefundsUseCase: SearchRefundsUseCase, getAllRefundsUseCase: GetAllRefundsUseCase);
+    getAllRefunds(): Promise<unknown[]>;
     createRefund(dto: CreateRefundDto): Promise<{
         refund_id: number;
         status: string;

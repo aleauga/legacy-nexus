@@ -11,6 +11,7 @@ import { InventoryModule } from './modules/inventory.module';
 import { SuppliersModule } from './modules/suppliers.module';
 import { NotificationsModule } from './modules/notifications.module';
 import { ProductsModule } from './modules/products.module';
+import { CartModule } from './modules/cart.module';
 import { HealthController } from './controllers/health.controller';
 import { AppController } from './controllers/app.controller';
 import { MemoryCacheService } from '../infrastructure/cache/memory.cache.service';
@@ -34,6 +35,7 @@ import { EmailService } from '../infrastructure/services/email.service.impl';
     SuppliersModule,
     NotificationsModule,
     ProductsModule,
+    CartModule,
   ],
   controllers: [HealthController, AppController],
   providers: [

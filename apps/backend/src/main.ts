@@ -17,8 +17,7 @@ async function bootstrap() {
   
   // Servir archivos estáticos
   app.useStaticAssets(join(process.cwd(), '../frontend/static'), {
-    index: false,
-    extensions: ['html'],
+    prefix: '/static',
   });
   
   await app.listen(3000, '0.0.0.0');

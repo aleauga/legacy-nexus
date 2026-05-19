@@ -3,6 +3,7 @@ export interface IRefundRepository {
     findById(id: number): Promise<unknown | null>;
     findBySaleId(saleId: number): Promise<unknown[]>;
     findByUserId(userId: number): Promise<unknown[]>;
+    findAll(): Promise<unknown[]>;
     search(query: string): Promise<unknown[]>;
     updateStatus(id: number, status: string): Promise<void>;
 }

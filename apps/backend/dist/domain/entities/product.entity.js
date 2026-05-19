@@ -2,13 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
 class Product {
-    constructor(id, sku, name, price, category, supplierId, deletedAt = null) {
+    constructor(id, sku, name, price, category, supplierId, stock, deletedAt = null) {
         this.id = id;
         this.sku = sku;
         this.name = name;
         this.price = price;
         this.category = category;
         this.supplierId = supplierId;
+        this.stock = stock;
         this.deletedAt = deletedAt;
     }
     isActive() {

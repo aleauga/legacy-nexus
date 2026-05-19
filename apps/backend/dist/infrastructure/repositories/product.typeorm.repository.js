@@ -29,17 +29,17 @@ let ProductTypeOrmRepository = class ProductTypeOrmRepository {
         if (!ormEntity) {
             return null;
         }
-        return new product_entity_1.Product(ormEntity.id, ormEntity.sku, ormEntity.name, ormEntity.price, ormEntity.category, ormEntity.supplier_id, ormEntity.deleted_at);
+        return new product_entity_1.Product(ormEntity.id, ormEntity.sku, ormEntity.name, ormEntity.price, ormEntity.category, ormEntity.supplier_id, ormEntity.stock, ormEntity.deleted_at);
     }
     async findAll() {
         const ormEntities = await this.repository.find();
-        return ormEntities.map((entity) => new product_entity_1.Product(entity.id, entity.sku, entity.name, entity.price, entity.category, entity.supplier_id, entity.deleted_at));
+        return ormEntities.map((entity) => new product_entity_1.Product(entity.id, entity.sku, entity.name, entity.price, entity.category, entity.supplier_id, entity.stock, entity.deleted_at));
     }
     async findActive() {
         const ormEntities = await this.repository.find({
             where: { deleted_at: null },
         });
-        return ormEntities.map((entity) => new product_entity_1.Product(entity.id, entity.sku, entity.name, entity.price, entity.category, entity.supplier_id, entity.deleted_at));
+        return ormEntities.map((entity) => new product_entity_1.Product(entity.id, entity.sku, entity.name, entity.price, entity.category, entity.supplier_id, entity.stock, entity.deleted_at));
     }
     async findBySku(sku) {
         const ormEntity = await this.repository.findOne({
@@ -48,7 +48,7 @@ let ProductTypeOrmRepository = class ProductTypeOrmRepository {
         if (!ormEntity) {
             return null;
         }
-        return new product_entity_1.Product(ormEntity.id, ormEntity.sku, ormEntity.name, ormEntity.price, ormEntity.category, ormEntity.supplier_id, ormEntity.deleted_at);
+        return new product_entity_1.Product(ormEntity.id, ormEntity.sku, ormEntity.name, ormEntity.price, ormEntity.category, ormEntity.supplier_id, ormEntity.stock, ormEntity.deleted_at);
     }
     async create(product) {
         const ormEntity = this.repository.create({
@@ -57,6 +57,7 @@ let ProductTypeOrmRepository = class ProductTypeOrmRepository {
             price: product.price,
             category: product.category,
             supplier_id: product.supplierId,
+            stock: product.stock,
             deleted_at: product.deletedAt,
         });
         const saved = await this.repository.save(ormEntity);

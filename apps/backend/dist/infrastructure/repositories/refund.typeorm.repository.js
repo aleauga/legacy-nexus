@@ -44,6 +44,9 @@ let RefundTypeOrmRepository = class RefundTypeOrmRepository {
             where: { user_id: userId },
         });
     }
+    async findAll() {
+        return this.repository.find();
+    }
     async search(query) {
         return this.repository
             .createQueryBuilder('refund')

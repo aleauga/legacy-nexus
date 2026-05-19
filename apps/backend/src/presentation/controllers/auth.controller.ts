@@ -1,4 +1,4 @@
-import { Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { LoginUseCase } from '../../application/use-cases/auth/login.use-case';
 import { LoginDto } from '../../application/dto/login.dto';
 
@@ -10,7 +10,7 @@ export class AuthController {
   async login(@Body() dto: LoginDto) {
     const user = await this.loginUseCase.execute(dto);
     if (!user) {
-      throw new HttpException({ error: 'invalid credentials' }, HttpStatus.UNAUTHORIZED);
+      return { error: 'invalid credentials' };
     }
     return user;
   }

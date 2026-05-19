@@ -44,6 +44,10 @@ export class RefundTypeOrmRepository implements IRefundRepository {
     });
   }
 
+  async findAll(): Promise<unknown[]> {
+    return this.repository.find();
+  }
+
   async search(query: string): Promise<unknown[]> {
     return this.repository
       .createQueryBuilder('refund')

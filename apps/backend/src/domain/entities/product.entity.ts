@@ -6,6 +6,7 @@ export class Product {
     public readonly price: number,
     public readonly category: string,
     public readonly supplierId: number,
+    public readonly stock: number,
     public readonly deletedAt: Date | null = null,
   ) {}
 

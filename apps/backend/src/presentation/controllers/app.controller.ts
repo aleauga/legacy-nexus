@@ -4,20 +4,12 @@ import { join } from 'path';
 
 @Controller()
 export class AppController {
-  private serveLoginFile(res: Response) {
+  @Get()
+  serveLogin(@Res() res: Response) {
+    // Agregar headers para evitar cache
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
-    return res.sendFile(join(process.cwd(), '../frontend/static', 'login.html'));
-  }
-
-  @Get()
-  serveRoot(@Res() res: Response) {
-    return this.serveLoginFile(res);
-  }
-
-  @Get('login')
-  serveLogin(@Res() res: Response) {
-    return this.serveLoginFile(res);
+    return res.sendFile(join(process.cwd(), 'static', 'login.html'));
   }
 }

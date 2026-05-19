@@ -9,6 +9,8 @@
     "backend:start:dev": "cd apps/backend && npm run start:dev",
     "backend:start:prod": "cd apps/backend && npm run start:prod",
     "backend:test": "cd apps/backend && npm run test",
+    "frontend:dev": "cd apps/frontend && npm run dev",
+    "frontend:build": "cd apps/frontend && npm run build",
     "frontend:serve": "cd apps/frontend && npm run serve",
     "install:all": "npm install && cd apps/backend && npm install && cd ../frontend && npm install"
   },

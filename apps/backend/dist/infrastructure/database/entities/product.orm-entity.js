@@ -39,6 +39,10 @@ __decorate([
     __metadata("design:type", Number)
 ], ProductOrmEntity.prototype, "supplier_id", void 0);
 __decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], ProductOrmEntity.prototype, "stock", void 0);
+__decorate([
     (0, typeorm_1.Column)({ type: 'datetime', nullable: true }),
     __metadata("design:type", Object)
 ], ProductOrmEntity.prototype, "deleted_at", void 0);

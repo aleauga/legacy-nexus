@@ -5,5 +5,6 @@ export declare class ProductOrmEntity {
     price: number;
     category: string;
     supplier_id: number;
+    stock: number;
     deleted_at: Date | null;
 }

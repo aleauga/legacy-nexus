@@ -13,8 +13,7 @@ async function bootstrap() {
     }));
     app.enableCors();
     app.useStaticAssets((0, path_1.join)(process.cwd(), '../frontend/static'), {
-        index: false,
-        extensions: ['html'],
+        prefix: '/static',
     });
     await app.listen(3000, '0.0.0.0');
     console.log('Application is running on http://0.0.0.0:3000');

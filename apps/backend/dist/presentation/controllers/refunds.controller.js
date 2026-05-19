@@ -18,13 +18,18 @@ const create_refund_use_case_1 = require("../../application/use-cases/refunds/cr
 const approve_refund_use_case_1 = require("../../application/use-cases/refunds/approve-refund.use-case");
 const get_refunds_by_user_use_case_1 = require("../../application/use-cases/refunds/get-refunds-by-user.use-case");
 const search_refunds_use_case_1 = require("../../application/use-cases/refunds/search-refunds.use-case");
+const get_all_refunds_use_case_1 = require("../../application/use-cases/refunds/get-all-refunds.use-case");
 const create_refund_dto_1 = require("../../application/dto/create-refund.dto");
 let RefundsController = class RefundsController {
-    constructor(createRefundUseCase, approveRefundUseCase, getRefundsByUserUseCase, searchRefundsUseCase) {
+    constructor(createRefundUseCase, approveRefundUseCase, getRefundsByUserUseCase, searchRefundsUseCase, getAllRefundsUseCase) {
         this.createRefundUseCase = createRefundUseCase;
         this.approveRefundUseCase = approveRefundUseCase;
         this.getRefundsByUserUseCase = getRefundsByUserUseCase;
         this.searchRefundsUseCase = searchRefundsUseCase;
+        this.getAllRefundsUseCase = getAllRefundsUseCase;
+    }
+    async getAllRefunds() {
+        return this.getAllRefundsUseCase.execute();
     }
     async createRefund(dto) {
         return this.createRefundUseCase.execute(dto);
@@ -40,6 +45,12 @@ let RefundsController = class RefundsController {
     }
 };
 exports.RefundsController = RefundsController;
+__decorate([
+    (0, common_1.Get)('refunds'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], RefundsController.prototype, "getAllRefunds", null);
 __decorate([
     (0, common_1.Post)('refunds'),
     __param(0, (0, common_1.Body)()),
@@ -73,6 +84,7 @@ exports.RefundsController = RefundsController = __decorate([
     __metadata("design:paramtypes", [create_refund_use_case_1.CreateRefundUseCase,
         approve_refund_use_case_1.ApproveRefundUseCase,
         get_refunds_by_user_use_case_1.GetRefundsByUserUseCase,
-        search_refunds_use_case_1.SearchRefundsUseCase])
+        search_refunds_use_case_1.SearchRefundsUseCase,
+        get_all_refunds_use_case_1.GetAllRefundsUseCase])
 ], RefundsController);
 //# sourceMappingURL=refunds.controller.js.map

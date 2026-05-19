@@ -23,7 +23,7 @@ let AuthController = class AuthController {
     async login(dto) {
         const user = await this.loginUseCase.execute(dto);
         if (!user) {
-            throw new common_1.HttpException({ error: 'invalid credentials' }, common_1.HttpStatus.UNAUTHORIZED);
+            return { error: 'invalid credentials' };
         }
         return user;
     }

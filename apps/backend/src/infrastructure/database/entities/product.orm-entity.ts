@@ -20,6 +20,9 @@ export class ProductOrmEntity {
   @Column()
   supplier_id!: number;
 
+  @Column()
+  stock!: number;
+
   @Column({ type: 'datetime', nullable: true })
   deleted_at!: Date | null;
 }

@@ -28,6 +28,7 @@ export class ProductTypeOrmRepository implements IProductRepository {
       ormEntity.price,
       ormEntity.category,
       ormEntity.supplier_id,
+      ormEntity.stock,
       ormEntity.deleted_at,
     );
   }
@@ -43,6 +44,7 @@ export class ProductTypeOrmRepository implements IProductRepository {
           entity.price,
           entity.category,
           entity.supplier_id,
+          entity.stock,
           entity.deleted_at,
         ),
     );
@@ -61,6 +63,7 @@ export class ProductTypeOrmRepository implements IProductRepository {
           entity.price,
           entity.category,
           entity.supplier_id,
+          entity.stock,
           entity.deleted_at,
         ),
     );
@@ -82,6 +85,7 @@ export class ProductTypeOrmRepository implements IProductRepository {
       ormEntity.price,
       ormEntity.category,
       ormEntity.supplier_id,
+      ormEntity.stock,
       ormEntity.deleted_at,
     );
   }
@@ -93,6 +97,7 @@ export class ProductTypeOrmRepository implements IProductRepository {
       price: product.price,
       category: product.category,
       supplier_id: product.supplierId,
+      stock: product.stock,
       deleted_at: product.deletedAt,
     });
 

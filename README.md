@@ -1,14 +1,14 @@
 # Legacy Nexus
 
-Retail management system - Monorepo with NestJS Backend and Static Frontend.
+Retail management system - Monorepo with NestJS Backend and React Frontend.
 
-## Sructuree
+## Structure
 
 ```
 legacy-nexus-monorepo/
 ├── apps/
 │   ├── backend/          # Backend NestJS con Clean Architecture
-│   └── frontend/        # Frontend HTML/CSS/JS estático
+│   └── frontend/        # Frontend React + TypeScript + Vite + TailwindCSS
 ├── packages/            # Paquetes compartidos (si se necesitan)
 └── package.json         # Configuración raíz del monorepo
 ```
@@ -46,11 +46,12 @@ npm run start:dev
 
 El backend corre en: **http://localhost:3000**
 
-### Paso 3: Ejecutar Frontend (Archivos Estáticos)
+### Paso 3: Ejecutar Frontend (React + Vite)
 
 ```bash
 # Desde la raíz del proyecto
-npm run frontend:serve
+cd apps/frontend
+npm run dev
 ```
 
 El frontend corre en: **http://localhost:8080**
@@ -84,7 +85,12 @@ El frontend corre en: **http://localhost:8080**
 - **Database**: SQLite
 
 ### Frontend
-- **Static**: HTML5, CSS3, JavaScript (ES6+)
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS
+- **Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
 
 ## Arquitectura del Backend
 
@@ -95,3 +101,35 @@ Clean Architecture con capas:
 - `presentation/` - Controladores HTTP
 
 Ver [apps/backend/README_NESTJS.md](apps/backend/README_NESTJS.md) para documentación detallada del backend.
+
+## Características del Frontend
+
+### Páginas Principales
+- **Login**: Sistema de autenticación con roles (admin/user)
+- **Catálogo**: Visualización y búsqueda de productos
+- **Inventario**: Gestión de inventario por almacén
+- **Carrito**: Carrito de compras y checkout
+- **Historial de Ventas**: Registro de ventas realizadas
+- **Compras**: Gestión de compras a proveedores
+- **Reportes**: Reportes mensuales y totales
+- **Notificaciones**: Sistema de notificaciones
+- **Devoluciones**: Gestión de reembolsos
+- **Exportes**: Exportación de datos con múltiples opciones
+
+### Funcionalidad de Exportes (Solo Admin)
+- **Pivot Tables**: Generación de tablas dinámicas con:
+  - Selección de año
+  - Dimensión A: customer_type, status, user_id
+  - Dimensión B: category, supplier_id, warehouse_id
+  - Métricas: ventas, gross, effective, after_volume
+  - Resumen con total gross y número de filas
+
+- **Totales**: Cálculo de totales por año con filtro opcional de customer_type
+
+- **Descarga CSV**: Exportación de datos con filtro SQL personalizado (solo administradores)
+
+### Autenticación y Autorización
+- Sistema de login con credenciales
+- Gestión de sesión con localStorage
+- Protección de rutas basada en roles (admin/user)
+- Contexto de autenticación global

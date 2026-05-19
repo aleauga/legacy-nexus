@@ -25,7 +25,7 @@ export class ExportsController {
   async exportPivot(@Query('year') year: string, @Query('a') a: string, @Query('b') b: string, @Res() res: Response) {
     const pivot = await this.exportPivotUseCase.execute(parseInt(year), a, b);
     res.setHeader('Content-Type', 'application/json');
-    res.json(pivot.data);
+    res.json(pivot);
   }
 
   @Get('exports/totals')

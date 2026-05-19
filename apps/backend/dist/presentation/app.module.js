@@ -23,6 +23,7 @@ const inventory_module_1 = require("./modules/inventory.module");
 const suppliers_module_1 = require("./modules/suppliers.module");
 const notifications_module_1 = require("./modules/notifications.module");
 const products_module_1 = require("./modules/products.module");
+const cart_module_1 = require("./modules/cart.module");
 const health_controller_1 = require("./controllers/health.controller");
 const app_controller_1 = require("./controllers/app.controller");
 const memory_cache_service_1 = require("../infrastructure/cache/memory.cache.service");
@@ -54,6 +55,7 @@ exports.AppModule = AppModule = __decorate([
             suppliers_module_1.SuppliersModule,
             notifications_module_1.NotificationsModule,
             products_module_1.ProductsModule,
+            cart_module_1.CartModule,
         ],
         controllers: [health_controller_1.HealthController, app_controller_1.AppController],
         providers: [
